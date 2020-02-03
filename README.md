@@ -1,4 +1,4 @@
-# Bitbucket projects automation
+# Bitbucket automation
 
 This is a set of Unix-shell bash scripts designed to automate the recurrent operations 
 over Git repositories grouped into a Bitbucket project.   
