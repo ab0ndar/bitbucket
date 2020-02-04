@@ -46,7 +46,7 @@ Or, if repo parameter is present, set git tag to that only repo.
 | tag             | yes      | Git tag value to set.  |
   
 ### Example
-
+Set tag **v1.3.42** to the latest commit in **master** branch for all the repositories of **MyVeryCoolProject** project in **ab0ndar** Bitbucket workspace.   
 ```
 ./bin/tag-add.sh \  
 --client-id bitbucket-oauth2-consumer-key \  
