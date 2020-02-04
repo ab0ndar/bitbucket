@@ -31,8 +31,8 @@ assign the following permissions to allow scripts to make changes to your reposi
 
 ## Set tag
 
-Set a git tag value to all the repositories of specified Bitbucket project. 
-Or, if repo parameter is present, set git tag to that only repo.
+Set git tag to all the repositories of the specified Bitbucket project. 
+Or, if repo parameter is present, set git tag to that only repository.
 
 ### Parameters
 | Name            | Required | Description |
@@ -46,7 +46,8 @@ Or, if repo parameter is present, set git tag to that only repo.
 | tag             | yes      | Git tag value to set.  |
   
 ### Example
-Set tag **v1.3.42** to the latest commit in **master** branch for all the repositories of **MyVeryCoolProject** project in **ab0ndar** Bitbucket workspace.   
+Set tag **v1.3.42** to the latest revision in **master** branch in every repository 
+of **MyVeryCoolProject** project belonged to the **ab0ndar** Bitbucket workspace.   
 ```
 ./bin/tag-add.sh \  
 --client-id bitbucket-oauth2-consumer-key \  
@@ -55,4 +56,33 @@ Set tag **v1.3.42** to the latest commit in **master** branch for all the reposi
 --project MyVeryCoolProject \    
 --branch master \  
 --tag "v1.3.42"
+``` 
+ 
+## Create pull request
+
+Create pull request for all the repositories of the specified Bitbucket project. 
+Or, if repo parameter is present, create pull request for that only repository.
+
+### Parameters
+| Name            | Required | Description |
+| --------------- | -------- | ------------- |
+| client-id       | yes      | Bitbucket OAuth2 consumer's key, has to be created on Bitbucket administrative portal at the OAuth settings page. |
+| client-secret   | yes      | Bitbucket OAuth2 consumer's secret, has to be created on Bitbucket administrative portal at the OAuth settings page. |
+| workspace       | yes      | Bitbucket workspace ID. The workspace ID is the part in the URL before the repository slug. Usernames and workspace IDs are often the same. |
+| project         | yes      | Bitbucket project name.  |
+| repo            | no       | Bitbucket/Git repository name. If specified, the git tag is set to that only repository. If omitted, the git tag is set to all the repositories of the specified project. |
+| branch-src      | yes      | Bitbucket/Git source branch name.  |
+| branch-dst      | yes      | Bitbucket/Git destination branch name.  |
+  
+### Example
+Create pull requests for merging **master** branches to **develop** in every repository 
+of **MyVeryCoolProject** project belonged to the **ab0ndar** Bitbucket workspace.   
+```
+./bin/pr-create.sh \  
+--client-id bitbucket-oauth2-consumer-key \  
+--client-secret "bitbucket-oauth2-consumer-secret" \
+--workspace ab0ndar \  
+--project MyVeryCoolProject \    
+--branch-src develop \  
+--branch-dst master
 ```  
