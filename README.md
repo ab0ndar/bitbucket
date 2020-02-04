@@ -23,18 +23,36 @@ To initiate OAuth2 flow, scripts need client's key and secret.
 They have to be created on Bitbucket administrative portal at the OAuth settings page. 
 You can get more details on how to create OAuth2 consumer (client's key and secret) from the 
 [instruction](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html) on the Atlassian web site.
-As soon as Bitbucket OAuth2 consumer is created, enable Client Credentials Grant type by checking "This is a private consumer" and
-assign the following permissions to allow scripts to make changes in your repositories:  
+As soon as Bitbucket OAuth2 consumer is created, enable Client Credentials Grant type by checking "This is a private consumer" option and
+assign the following permissions to allow scripts to make changes to your repositories:  
  * projects:write  
  * repositories:admin  
  * pull requests:write  
 
 ## Set tag
 
+Set a git tag value to all the repositories of specified Bitbucket project. 
+Or, if repo parameter is present, set git tag to that only repo.
+
+### Parameters
+| Name            | Required | Description |
+| --------------- | -------- | ------------- |
+| client-id       | yes      | Bitbucket OAuth2 consumer's key, has to be created on Bitbucket administrative portal at the OAuth settings page. |
+| client-secret   | yes      | Bitbucket OAuth2 consumer's secret, has to be created on Bitbucket administrative portal at the OAuth settings page. |
+| workspace       | yes      | Bitbucket workspace ID. The workspace ID is the part in the URL before the repository slug. Usernames and workspace IDs are often the same. |
+| project         | yes      | Bitbucket project name.  |
+| repo            | no       | Bitbucket/Git repository name. If specified, the git tag is set to that only repository. If omitted, the git tag is set to all the repositories of the specified project. |
+| branch          | yes      | Bitbucket/Git branch name. Git tag is set to the latest commit in the specified git branch. |
+| tag             | yes      | Git tag value to set.  |
+  
+### Example
+
+```
 ./bin/tag-add.sh \  
 --client-id bitbucket-oauth2-consumer-key \  
 --client-secret "bitbucket-oauth2-consumer-secret" \
 --workspace ab0ndar \  
 --project MyVeryCoolProject \    
 --branch master \  
---tag "v1.3.42"  
+--tag "v1.3.42"
+```  
