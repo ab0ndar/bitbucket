@@ -9,7 +9,7 @@ Required parameters:
     --client-id|BITBUCKET_CLIENT_ID - Bitbucket OAuth consumer key
     --client-secret|BITBUCKET_CLIENT_SECRET - Bitbucket OAuth consumer secret
     --workspace|BITBUCKET_WORKSPACE - Bitbucket workspace
-    --project|BITBUCKET_PROJECT - Bitbucket project
+    --project|BITBUCKET_PROJECT - Bitbucket project key
     --branch|BITBUCKET_BRANCH - Bitbucket/git branch to set a tag on
     --tag|BITBUCKET_TAG - Bitbucket/git tag value
 
