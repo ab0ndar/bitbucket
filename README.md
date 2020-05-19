@@ -40,7 +40,7 @@ Or, if repo parameter is present, set git tag to that only repository.
 | client-id       | yes      | Bitbucket OAuth2 consumer's key, has to be created on Bitbucket administrative portal at the OAuth settings page. |
 | client-secret   | yes      | Bitbucket OAuth2 consumer's secret, has to be created on Bitbucket administrative portal at the OAuth settings page. |
 | workspace       | yes      | Bitbucket workspace ID. The workspace ID is the part in the URL before the repository slug. Usernames and workspace IDs are often the same. |
-| project         | yes      | Bitbucket project name.  |
+| project         | yes      | Bitbucket project key.  |
 | repo            | no       | Bitbucket/Git repository name. If specified, the git tag is set to that only repository. If omitted, the git tag is set to all the repositories of the specified project. |
 | branch          | yes      | Bitbucket/Git branch name. Git tag is set to the latest commit in the specified git branch. |
 | tag             | yes      | Git tag value to set.  |
@@ -53,7 +53,7 @@ of **MyVeryCoolProject** project belonged to the **ab0ndar** Bitbucket workspace
 --client-id bitbucket-oauth2-consumer-key \  
 --client-secret "bitbucket-oauth2-consumer-secret" \
 --workspace ab0ndar \  
---project MyVeryCoolProject \    
+--project MVCP \    
 --branch master \  
 --tag "v1.3.42"
 ``` 
@@ -69,7 +69,7 @@ Or, if repo parameter is present, create pull request for that only repository.
 | client-id       | yes      | Bitbucket OAuth2 consumer's key, has to be created on Bitbucket administrative portal at the OAuth settings page. |
 | client-secret   | yes      | Bitbucket OAuth2 consumer's secret, has to be created on Bitbucket administrative portal at the OAuth settings page. |
 | workspace       | yes      | Bitbucket workspace ID. The workspace ID is the part in the URL before the repository slug. Usernames and workspace IDs are often the same. |
-| project         | yes      | Bitbucket project name.  |
+| project         | yes      | Bitbucket project key.  |
 | repo            | no       | Bitbucket/Git repository name. If specified, the git tag is set to that only repository. If omitted, the git tag is set to all the repositories of the specified project. |
 | branch-src      | yes      | Bitbucket/Git source branch name.  |
 | branch-dst      | yes      | Bitbucket/Git destination branch name.  |
@@ -82,7 +82,7 @@ of **MyVeryCoolProject** project belonged to the **ab0ndar** Bitbucket workspace
 --client-id bitbucket-oauth2-consumer-key \  
 --client-secret "bitbucket-oauth2-consumer-secret" \
 --workspace ab0ndar \  
---project MyVeryCoolProject \    
+--project MVCP  \    
 --branch-src develop \  
 --branch-dst master
 ```  
